@@ -1,0 +1,36 @@
+﻿<Window x:Class="书法字库软件.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:书法字库软件" Name="window" Icon="AppSetup.ico"
+        Title="书法字库" Height="350" Width="600" Closing="window_Closing" Loaded="window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Text="在下面输入文字：" Margin="5" VerticalAlignment="Center"/>
+        <TextBox Name="calligraphyText" Margin="5" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" 
+                 Width="auto" Height="auto" FontSize="22"
+                 BorderThickness="1" BorderBrush="Black"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="设置图片高度(默认50)：" VerticalAlignment="Center" Margin="5"/>
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Stretch">
+            <local:NumbersOnlyTextBox x:Name="imgHeight" Width="80" Margin="5" VerticalContentAlignment="Center"/>
+            <!--<TextBlock Text="×" FontSize="22" Margin="5" VerticalAlignment="Center"/>
+            <local:NumbersOnlyTextBox x:Name="imgHeight" Width="80" Margin="6" VerticalContentAlignment="Center"/>-->
+        </StackPanel>        
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name="clearBtn" Content="清空" Margin="5" Padding="5" Click="clearBtn_Click" />
+            <Button Name="doBtn" Content="调用字库" Margin="5" Padding="5" Click="doBtn_Click" />
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextBlock Text="{Binding CurrentDir}" Margin="5" VerticalAlignment="Center"/>
+            <Button Name="browseFolderBtn" Content="选择字库图片目录 ..." Margin="5" Padding="5" Click="browseFolderBtn_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
